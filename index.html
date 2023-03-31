@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>2048</title>
+</head>
+<body>
+    <div id="header-shell">
+        <h1 id="game-title">2048</h1>
+        <button id="directions-button">How to play→</button>
+        <span id="score-box" class="score">Score: <span id="score">0</span></span>
+        <button type="button" id="new-game-button">New Game</button>
+        <span id="high-score-box" class="score">High Score: <span id="high-score">0</span></span>
+    </div>
+    <div id="board"></div>
+    <div id="win-lose"></div>
+    <div id="directions">
+        How to paly: <br>
+        Use the arrow keys to slide the tiles. <br>
+        Slide the tiles to combine like numbers. <br>
+        A new tile spawns each time you slide. <br>
+        If you get to 2048, you win! <br>
+        If you run out of was to slide, you lose!
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
