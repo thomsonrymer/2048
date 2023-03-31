@@ -11,7 +11,7 @@ hr {
 }
 
 #header-shell {
-    wideth: 400px;
+    width: 400px;
     margin: auto;
     display: grid;
     grid-template-columns: 150px 70px 180px;
@@ -37,7 +37,7 @@ hr {
 }
 
 #directions-button {
-    display: block;
+    display: flex;
     font-size: 16px;
     margin-top: 0px;
     margin-bottom: 0px;

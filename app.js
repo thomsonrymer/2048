@@ -1,6 +1,6 @@
-let numboad;
+let numBoard;
 let score = 0;
-let highscore = 0;
+let highScore = 0;
 let scoreField = document.getElementById("score");
 let highScoreField = document.getElementById("high-score");
 let gameBoard = document.getElementById("board");
@@ -38,7 +38,7 @@ function displayBoard() {
         for (let j = 0; j < 4; j++) {
             let curTile = document.getElementById(`t${i}-${j}`);
 
-            cutTile.innerText = +numBoard[i][j];
+        curTile.innerText = +numBoard[i][j];
             if(numBoard[i][j] === 0) {
                 curTile.innerText = "";
             }
@@ -216,5 +216,55 @@ function moveLeft() {
 }
 
 function moveRight() {
-
+    for (let i = 0; i < 4; i++) {
+        numBoard[i] = moveRow(numBoard[i].reverse()).reverse();
+    }
 }
+
+function moveUp() {
+    for (let i = 0; i < 4; i++) {
+        let tempArr = [];
+
+        for (let j = 0; j < 4; j++) {
+            tempArr.push(numBoard[j][i]);
+        }
+
+        tempArr = moveRow(tempArr);
+
+        for (let j = 0; j < 4; j++) {
+            numBoard[j][i] = tempArr[j];
+        }
+    }
+}
+
+function moveDown() {
+    for (let i = 0; i < 4; i++) {
+        let tempArr = [];
+
+        for (let j = 0; j < 4; j++) {
+            tempArr.push(numBoard[j][i]);
+        }
+
+        tempArr = moveRow(tempArr.reverse()).reverse();
+
+        for (let j = 0; j < 4; j++) {
+            numBoard[j][i] = tempArr[j];
+        }
+    }
+}
+
+for (let i =0; i < 4; i++) {
+    for (let j = 0; j < 4; j++) {
+        let curTile = document.createElement("div");
+        curTile.className = "tile";
+
+        curTile.id = `t${i}-${j}`;
+        gameBoard.append(curTile);
+    }
+}
+
+resetBoard();
+
+document.addEventListener("keyup", handleKeyPress);
+newGameButton.addEventListener("click", resetBoard);
+directionsButton.addEventListener("click", displayDirections);
